@@ -430,15 +430,13 @@ html, body {
 }
 
 
-
-
-/* ===== ABOUT HERO PROFESSIONAL ===== */
+/* ================= ABOUT HERO ================= */
 
 .about-hero {
   position: relative;
   min-height: 100vh;
   padding: 130px 24px 60px;
-  color: #ffffff;
+  color: #962121;
   z-index: 1;
 }
 
@@ -446,19 +444,21 @@ html, body {
   content: "";
   position: absolute;
   inset: 0;
-
-  background-image: url("/images/bg.png"); /* your image */
+  background-image: url("/images/catering-bg1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   filter: brightness(0.75) contrast(1.05);
-
   z-index: -2;
 }
 
+.exp-section , .history-section , .owner-section , .hall-section {
+  position: relative;
+  z-index: 1;
+  background-color: #45000c;
+}
 
-/* ABOUT US LABEL */
+/* ABOUT LABEL */
 
 .about-label {
   font-size: clamp(16px, 2vw, 22px);
@@ -468,18 +468,16 @@ html, body {
   color: #000000;
 
   text-shadow:
-    0 0 8px rgba(255, 120, 120, 0.6),
-    0 0 20px rgba(255, 120, 120, 0.4);
+    0 0 10px rgba(212,175,55,0.5),
+    0 0 25px rgba(255,140,66,0.4);
 }
 
-
-/* TITLE — RAJ CATERERS */
+/* TITLE */
 
 .about-title {
   font-size: clamp(42px, 7vw, 90px);
   font-weight: 700;
   letter-spacing: 2px;
-
   font-family: var(--font-heading), serif;
 
   background: linear-gradient(45deg, #ffffff, #f3f4f6, #ffffff);
@@ -492,29 +490,17 @@ html, body {
     0 0 30px rgba(255,255,255,0.25);
 
   animation: shine 4s linear infinite;
-
   transition: all 0.4s ease;
 }
 
 .about-title:hover {
   transform: scale(1.04);
-  text-shadow:
-    0 20px 60px rgba(0,0,0,0.6),
-    0 0 40px rgba(255,255,255,0.4);
 }
-
-
-/* SHINE ANIMATION */
 
 @keyframes shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
-
 
 /* SUBTITLE */
 
@@ -524,17 +510,14 @@ html, body {
   color: #e5e7eb;
   font-weight: 500;
   letter-spacing: 0.5px;
-
   text-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-
-/* DESCRIPTION TEXT */
+/* DESCRIPTION */
 
 .about-description {
-  max-width: 1100px;   /* more spread */
+  max-width: 1100px;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -547,7 +530,6 @@ html, body {
   text-shadow: 0 3px 15px rgba(0,0,0,0.35);
 }
 
-
 /* SIGNATURE */
 
 .about-signature {
@@ -555,13 +537,12 @@ html, body {
   font-size: 14px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #000000;
-
-  font-weight: 1000;   /* ✅ makes it bold */
+  color: #D4AF37;
+  font-weight: 700;
 
   text-shadow:
-    0 0 10px rgba(2, 1, 1, 0.5),
-    0 0 25px rgba(255,120,120,0.3);
+    0 0 10px rgba(212,175,55,0.4),
+    0 0 20px rgba(255,140,66,0.3);
 }
 
 /* MOBILE */
@@ -573,98 +554,7 @@ html, body {
 }
 
 
-
-
-/* TIMELINE CONTAINER */
-
-.timeline-container {
-  position: relative;
-  max-width: 900px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
-
-/* Vertical Line */
-
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(to bottom, #f87171, #ef4444);
-  transform: translateX(-50%);
-}
-
-/* Timeline Item */
-
-.timeline-item {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  opacity: 0;
-  transform: translateY(80px);
-}
-
-/* Alternate left right */
-
-.timeline-item:nth-child(odd) {
-  flex-direction: row;
-}
-
-.timeline-item:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-/* Card */
-.timeline-item img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-/* Content */
-
-.timeline-content {
-  background: #000;
-  padding: 20px 24px;
-  border-radius: 16px;
-  max-width: 380px;
-}
-
-.timeline-content h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.timeline-content p {
-  color: #9ca3af;
-}
-
-/* Mobile */
-
-
-
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(to bottom, #f87171, #ef4444);
-  transform: translateX(-50%);
-  transform-origin: top center;   /* important for animation */
-}
-
-
-/* TIMELINE CONTAINER */
+/* ================= TIMELINE ================= */
 
 .timeline-container {
   position: relative;
@@ -675,8 +565,7 @@ html, body {
   gap: 100px;
 }
 
-
-/* VERTICAL LINE */
+/* LINE */
 
 .timeline-line {
   position: absolute;
@@ -684,13 +573,18 @@ html, body {
   top: 0;
   width: 3px;
   height: 100%;
-  background: linear-gradient(to bottom, #f87171, #ef4444);
+
+  background: linear-gradient(
+    to bottom,
+    #D4AF37,
+    #FF8C42
+  );
+
   transform: translateX(-50%);
   transform-origin: top center;
 }
 
-
-/* TIMELINE ITEM */
+/* ITEM */
 
 .timeline-item {
   position: relative;
@@ -698,7 +592,6 @@ html, body {
   align-items: center;
   gap: 30px;
 }
-
 
 /* ALTERNATE */
 
@@ -710,7 +603,6 @@ html, body {
   flex-direction: row-reverse;
 }
 
-
 /* IMAGE */
 
 .timeline-item img {
@@ -718,20 +610,34 @@ html, body {
   height: 220px;
   object-fit: cover;
   border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-
-/* CARD CONTENT */
+/* CARD */
 
 .timeline-content {
-  background: #000;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,175,55,0.25);
+
   padding: 20px 24px;
   border-radius: 16px;
   max-width: 380px;
+  color: #F8F5F0;
 }
 
+.timeline-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #FFD700;
+}
 
-/* TIMELINE DOT */
+.timeline-content p {
+  color: #A1A1AA;
+}
+
+/* DOT */
 
 .timeline-dot {
   position: absolute;
@@ -739,16 +645,20 @@ html, body {
   top: 50%;
   width: 16px;
   height: 16px;
-  background: #ef4444;
+
+  background: #FF8C42;
   border-radius: 50%;
+
   transform: translate(-50%, -50%);
 
   box-shadow:
-    0 0 10px #ef4444,
-    0 0 20px #ef4444,
-    0 0 40px rgba(239,68,68,0.6);
+    0 0 10px #FF8C42,
+    0 0 20px #FF8C42,
+    0 0 40px rgba(255,140,66,0.6);
 }
 
+
+/* MOBILE */
 
 @media (max-width: 768px) {
 
@@ -771,23 +681,13 @@ html, body {
     max-width: 100%;
   }
 
-}
-
-@media (max-width: 768px) {
-
   .timeline-item img {
     max-width: 100%;
+    height: auto;
   }
 
 }
 
 
-.hall-section {
-  /* background: url("/images/hall-bg.jpg") center/cover no-repeat;
-  color: #f3f4f6;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5); */
-
-  background-color: #3f2100;
 
 
-}
