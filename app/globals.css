@@ -621,10 +621,10 @@ html, body {
 }
 
 /* Card */
-
 .timeline-item img {
-  width: 320px;
-  height: 220px;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
   object-fit: cover;
   border-radius: 16px;
 }
@@ -750,8 +750,6 @@ html, body {
 }
 
 
-/* MOBILE */
-
 @media (max-width: 768px) {
 
   .timeline-line {
@@ -766,10 +764,22 @@ html, body {
     flex-direction: column !important;
     align-items: flex-start;
     padding-left: 40px;
+    gap: 16px;
+  }
+
+  .timeline-content {
+    max-width: 100%;
   }
 
 }
 
+@media (max-width: 768px) {
+
+  .timeline-item img {
+    max-width: 100%;
+  }
+
+}
 
 
 .hall-section {
