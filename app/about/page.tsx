@@ -341,57 +341,98 @@ gsap.from(".owner-text", {
         </div>
       </section>
 
+{/* ================= HALL SHOWCASE ================= */}
+<section className="hall-section py-16 md:py-24 px-4 relative">
 
-      {/* ================= HALL SHOWCASE (UNCHANGED) ================= */}
-      <section className="hall-section py-24 relative ">
-        <div className="text-center mb-20">
-          <h2 className="
-    text-yellow-400
-    text-5xl md:text-5xl
-    font-bold
-    mb-4
-    drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]
-  ">
-            Our Banquet Halls
-          </h2>
+  <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
+    <h2 className="
+      text-yellow-400
+      text-3xl sm:text-4xl md:text-5xl
+      font-bold
+      mb-4
+      drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]
+    ">
+      Our Banquet Halls
+    </h2>
 
-          <p className="text-white-400 max-w-2xl mx-auto drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
-            Elegant spaces designed to host celebrations of every scale with
-            comfort, style, and unforgettable ambiance.
-          </p>
-        </div>
+    <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
+      Elegant spaces designed to host celebrations of every scale with
+      comfort, style, and unforgettable ambiance.
+    </p>
+  </div>
 
-        <div className="timeline-container">
 
-          <div className="timeline-line"></div>
+  <div className="timeline-container relative max-w-5xl mx-auto flex flex-col items-center">
 
-          <div className="hall-card timeline-item">
-            <img src="/images/bg.png" alt="" />
-            <div className="timeline-content drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
-              <h3>Durga Wati Hall</h3>
-              <p>Perfect for weddings and large gatherings with premium décor.</p>
-            </div>
-          </div>
+    {/* Timeline line */}
+    <div className="timeline-line hidden md:block"></div>
 
-          <div className="hall-card timeline-item">
-            <img src="/images/bg.png" alt="" />
-            <div className="timeline-content drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
-              <h3>Nisha Garden</h3>
-              <p>Elegant interiors with modern amenities for memorable events.</p>
-            </div>
-          </div>
 
-          <div className="hall-card timeline-item">
-            <img src="/images/bg.png" alt="" />
-            <div className="timeline-content drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
-              <h3>Om Sai Hall</h3>
-              <p>Ideal for birthdays, receptions, and private celebrations.</p>
-            </div>
-          </div>
+    {/* Card 1 */}
+    <div className="hall-card timeline-item flex flex-col md:flex-row items-center justify-center w-full max-w-md md:max-w-full mb-12 md:mb-20 mx-auto">
 
-        </div>
-      </section>
+      <img
+        src="/images/bg.png"
+        alt=""
+        className="w-full md:w-[45%] h-[220px] md:h-auto rounded-xl object-cover"
+      />
 
+      <div className="timeline-content mt-4 md:mt-0 md:ml-10 text-center md:text-left drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
+        <h3 className="text-xl md:text-2xl font-semibold text-yellow-300">
+          Durga Wati Hall
+        </h3>
+        <p className="text-gray-300 text-sm md:text-base">
+          Perfect for weddings and large gatherings with premium décor.
+        </p>
+      </div>
+
+    </div>
+
+
+    {/* Card 2 */}
+    <div className="hall-card timeline-item flex flex-col md:flex-row items-center justify-center w-full max-w-md md:max-w-full mb-12 md:mb-20 mx-auto">
+
+      <img
+        src="/images/bg.png"
+        alt=""
+        className="w-full md:w-[45%] h-[220px] md:h-auto rounded-xl object-cover"
+      />
+
+      <div className="timeline-content mt-4 md:mt-0 md:ml-10 text-center md:text-left drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
+        <h3 className="text-xl md:text-2xl font-semibold text-yellow-300">
+          Nisha Garden
+        </h3>
+        <p className="text-gray-300 text-sm md:text-base">
+          Elegant interiors with modern amenities for memorable events.
+        </p>
+      </div>
+
+    </div>
+
+
+    {/* Card 3 */}
+    <div className="hall-card timeline-item flex flex-col md:flex-row items-center justify-center w-full max-w-md md:max-w-full mx-auto">
+
+      <img
+        src="/images/bg.png"
+        alt=""
+        className="w-full md:w-[45%] h-[220px] md:h-auto rounded-xl object-cover"
+      />
+
+      <div className="timeline-content mt-4 md:mt-0 md:ml-10 text-center md:text-left drop-shadow-[0_0_8px_rgba(255,140,66,0.35)]">
+        <h3 className="text-xl md:text-2xl font-semibold text-yellow-300">
+          Om Sai Hall
+        </h3>
+        <p className="text-gray-300 text-sm md:text-base">
+          Ideal for birthdays, receptions, and private celebrations.
+        </p>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
     </div>
   );
 }
