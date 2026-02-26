@@ -362,7 +362,7 @@ gsap.from(".owner-text", {
   </div>
 
 
-  <div className="timeline-container relative max-w-5xl mx-auto flex flex-col items-center">
+  <div className="timeline-container relative w-full max-w-5xl mx-auto flex flex-col items-center">
 
     {/* Timeline line */}
     <div className="
@@ -375,7 +375,7 @@ gsap.from(".owner-text", {
     "></div>
 
 
-    {/* Card */}
+    {/* Cards */}
     {[
       {
         title: "Durga Wati Hall",
@@ -395,12 +395,12 @@ gsap.from(".owner-text", {
         className="
           hall-card timeline-item
           flex flex-col md:flex-row
-          items-center
-          gap-6 md:gap-10
+          items-center justify-center
+          text-center md:text-left
           w-full
-          max-w-md md:max-w-4xl
-          mb-12 md:mb-20
+          max-w-sm sm:max-w-md md:max-w-4xl
           mx-auto
+          mb-14 md:mb-20
         "
       >
 
@@ -414,10 +414,11 @@ gsap.from(".owner-text", {
             rounded-xl
             object-cover
             shadow-lg
+            mx-auto
           "
         />
 
-        <div className="timeline-content text-center md:text-left px-2">
+        <div className="timeline-content mt-4 md:mt-0 md:ml-10 px-2">
           <h3 className="text-xl md:text-2xl font-semibold text-yellow-300">
             {hall.title}
           </h3>
