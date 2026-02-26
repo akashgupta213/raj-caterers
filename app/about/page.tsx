@@ -362,7 +362,7 @@ gsap.from(".owner-text", {
   </div>
 
 
-  <div className="timeline-container relative w-full max-w-5xl mx-auto flex flex-col items-center">
+  <div className="timeline-container relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center">
 
     {/* Timeline line */}
     <div className="
@@ -371,7 +371,7 @@ gsap.from(".owner-text", {
       absolute left-1/2 top-0
       -translate-x-1/2
       w-[2px] h-full
-      bg-yellow-400/40
+      bg-yellow-400/40 justi`fy-center
     "></div>
 
 
