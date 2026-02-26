@@ -340,7 +340,6 @@ gsap.from(".owner-text", {
 
         </div>
       </section>
-
 {/* ================= HALL SHOWCASE ================= */}
 <section className="hall-section py-16 md:py-24 px-4 relative">
 
@@ -362,7 +361,7 @@ gsap.from(".owner-text", {
   </div>
 
 
-  <div className="timeline-container relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center">
+  <div className="timeline-container relative max-w-5xl mx-auto flex flex-col items-center">
 
     {/* Timeline line */}
     <div className="
@@ -371,11 +370,11 @@ gsap.from(".owner-text", {
       absolute left-1/2 top-0
       -translate-x-1/2
       w-[2px] h-full
-      bg-yellow-400/40 justi`fy-center
+      bg-yellow-400/40
     "></div>
 
 
-    {/* Cards */}
+    {/* Card */}
     {[
       {
         title: "Durga Wati Hall",
@@ -395,12 +394,12 @@ gsap.from(".owner-text", {
         className="
           hall-card timeline-item
           flex flex-col md:flex-row
-          items-center justify-center
-          text-center md:text-left
+          items-center
+          gap-6 md:gap-10
           w-full
-          max-w-sm sm:max-w-md md:max-w-4xl
+          max-w-md md:max-w-4xl
+          mb-12 md:mb-20
           mx-auto
-          mb-14 md:mb-20
         "
       >
 
@@ -414,11 +413,10 @@ gsap.from(".owner-text", {
             rounded-xl
             object-cover
             shadow-lg
-            mx-auto
           "
         />
 
-        <div className="timeline-content mt-4 md:mt-0 md:ml-10 px-2">
+        <div className="timeline-content text-center md:text-left px-2">
           <h3 className="text-xl md:text-2xl font-semibold text-yellow-300">
             {hall.title}
           </h3>

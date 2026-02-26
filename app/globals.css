@@ -689,5 +689,55 @@ html, body {
 }
 
 
+/* ================= HALL MOBILE NORMAL MODE ================= */
 
+@media (max-width: 768px) {
 
+  /* Remove timeline vertical line */
+  .timeline-line {
+    display: none !important;
+  }
+
+  /* Confirm cards appear normally (no left/right GSAP offset feel) */
+  .timeline-item {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+
+    gap: 16px;
+    padding-left: 0 !important;
+    margin-bottom: 40px;
+
+    transform: none !important;   /* disables GSAP transform effect */
+    opacity: 1 !important;        /* ensures visible immediately */
+  }
+
+  /* Image full width */
+  .timeline-item img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 14px;
+  }
+
+  /* Content full width */
+  .timeline-content {
+    max-width: 100% !important;
+    width: 100%;
+    text-align: center;
+  }
+
+   .hall-card {
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto 0px;
+  }
+
+  .timeline-container {
+    max-width: 300px;
+    width: 100%;
+    margin: auto;
+  }
+
+}
