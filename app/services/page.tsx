@@ -1,10 +1,15 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
 import Navbar from "@/components/Navbar";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "@/app/globals.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Service = {
   slug: string;
@@ -32,7 +37,7 @@ const services: Service[] = [
   },
   {
     slug: "wedding-catering",
-    title: "Royal Wedding Catering",
+    title: "Royal Wedding",
     location: "T Nagar, Chennai",
     category: "Wedding Catering",
     price: "₹800 / plate",
@@ -55,103 +60,142 @@ const services: Service[] = [
 export default function ServicesPage() {
   const router = useRouter();
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".services-title", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".services-section",
+          start: "top 85%",
+        },
+      });
+
+      gsap.from(".services-divider", {
+        scale: 0.85,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: ".services-section",
+          start: "top 85%",
+        },
+      });
+    });
+
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#45000c] text-white">
+    <div className="min-h-screen bg-[#FFECE9]">
       <Navbar />
 
-      <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-12">
-          Our Services
+      <section className="py-30 services-section max-w-7xl mx-auto px-6 py-20">
+        {/* TITLE */}
+        <h1 className="destination-title services-title">
+          Services We Provide
         </h1>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* DIVIDER */}
+        <div className="flex justify-center -mt-20 services-divider">
+          <img
+            src="/images/gallery/divider-design.png"
+            alt="divider"
+            className="w-[350px]"
+          />
+        </div>
+
+        {/* GRID */}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 -mt-12">
           {services.map((service) => (
             <Link key={service.slug} href={`/services/${service.slug}`}>
-              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 cursor-pointer group">
-                
-                {/* IMAGE */}
-                <div className="relative">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-60 object-cover group-hover:scale-105 transition duration-300"
-                  />
+              
+              {/* PINK BACKGROUND CARD */}
+              <div className="card-wrapper">
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                {/* WHITE SERVICE CARD */}
+                <div className="service-card bg-white rounded-2xl overflow-hidden cursor-pointer group">
 
-                  {service.preferred && (
-                    <div className="absolute top-3 left-3 bg-green-600 text-white text-xs px-3 py-1 rounded-md shadow">
-                      ★ Most Preferred
-                    </div>
-                  )}
+                  {/* IMAGE */}
+                  <div className="relative">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={500}
+                      height={300}
+                      className="w-full h-60 object-cover group-hover:scale-105 transition duration-300"
+                    />
 
-                  <div className="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                    📷 40+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+                    {service.preferred && (
+                      <div className="absolute top-3 left-3 bg-green-600 text-white text-xs px-3 py-1 rounded-md shadow">
+                        ★ Most Preferred
+                      </div>
+                    )}
                   </div>
 
-                  <div className="absolute bottom-3 right-3 bg-white text-gray-800 text-xs px-3 py-1 rounded shadow">
-                    ❤️ Shortlist
+                  {/* CONTENT */}
+                  <div className="p-5 text-black">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-lg font-bold">{service.title}</h3>
+                        <p className="text-sm text-gray-600">
+                          {service.location}
+                        </p>
+                      </div>
+
+                      <div className="text-right">
+                        <p className="font-bold text-lg">{service.price}</p>
+                        <p className="text-sm text-gray-500">
+                          {service.category}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-2 text-sm text-gray-600">
+                      ⭐
+                      <span className="font-semibold text-orange-500 ml-1">
+                        {service.rating}
+                      </span>{" "}
+                      {service.reviews === 0
+                        ? "No reviews yet"
+                        : `${service.reviews} reviews`}
+                    </div>
+
+                    {/* BUTTONS */}
+                    <div className="flex gap-3 mt-4">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          router.push("/contact#contact-form");
+                        }}
+                        className="relative px-5 py-2 border border-gray-300 rounded-lg text-sm bg-white hover:bg-gray-100 transition overflow-hidden"
+                      >
+                        <span className="btn-shine"></span>
+                        <span className="relative z-10">Send Enquiry</span>
+                      </button>
+
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = "tel:+919334127247";
+                        }}
+                        className="relative flex-1 border border-red-400 text-red-500 rounded-lg py-2 text-sm bg-white hover:bg-red-50 transition overflow-hidden"
+                      >
+                        <span className="btn-shine"></span>
+                        <span className="relative z-10">View Contact</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* CONTENT */}
-                <div className="p-5 text-black">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-lg font-bold">{service.title}</h3>
-                      <p className="text-sm text-gray-600">
-                        {service.location}
-                      </p>
-                    </div>
-
-                    <div className="text-right">
-                      <p className="font-bold text-lg">{service.price}</p>
-                      <p className="text-sm text-gray-500">
-                        {service.category}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-2 text-sm text-gray-600">
-                    ⭐{" "}
-                    <span className="font-semibold text-orange-500">
-                      {service.rating}
-                    </span>{" "}
-                    {service.reviews === 0
-                      ? "No reviews yet"
-                      : `${service.reviews} reviews`}
-                  </div>
-
-                  {/* BUTTONS */}
-                  <div className="flex gap-3 mt-4">
-
-                    {/* Send Enquiry */}
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault(); // stop card navigation
-                        router.push("/contact#contact-form");
-                      }}
-                      className="px-6 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-100 transition"
-                    >
-                      Send Enquiry
-                    </button>
-
-                    {/* View Contact */}
-                    <button
-  onClick={(e) => {
-    e.preventDefault();
-    window.location.href = "tel:+919334127247";
-  }}
-  className="flex-1 border border-red-400 text-red-500 rounded-lg py-2 text-sm hover:bg-red-50 transition"
->
-  View Contact
-</button>
-
-                  </div>
-                </div>
               </div>
+
             </Link>
           ))}
         </div>

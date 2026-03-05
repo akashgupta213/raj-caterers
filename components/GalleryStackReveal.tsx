@@ -6,82 +6,112 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 25 images
+//9 images
 const images = Array.from(
-  { length: 25 },
+  { length: 12 },
   (_, i) => `/images/gallery/img${i + 1}.jpg`
 );
 
 export default function GalleryStackReveal() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+useEffect(() => {
 
-    const items = container.querySelectorAll(".gallery-item");
-    const centerItem = container.querySelector(".center-item");
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        end: "+=250%",
-        scrub: 1.2,   // 👈 smoother scroll interpolation
-        pin: true,
-      },
-    });
+  gsap.fromTo(
+  ".gallery-flower.left",
+  {
+    x: -120,
+    opacity: 0,
+  },
+  {
+    x: 0,
+    opacity: 1,
+    duration: 1.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".gallery-stack",
+      start: "top 70%",
+    },
+  }
+);
 
-    // Initial state
-    gsap.set(items, {
-      scale: 0.7,
-      opacity: 0,
-      transformPerspective: 1000,
-    });
+gsap.fromTo(
+  ".gallery-flower.right",
+  {
+    x: 120,
+    opacity: 0,
+  },
+  {
+    x: 0,
+    opacity: 1,
+    duration: 1.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".gallery-stack",
+      start: "top 70%",
+    },
+  }
+);
+  const container = containerRef.current;
+  if (!container) return;
 
-    // STEP 1 — Grid reveal
-    tl.to(items, {
-      scale: 1,
-      opacity: 1,
-      stagger: {
-        each: 0.03,
-        from: "center",
-      },
-      ease: "power2.out",
-      duration: 1.2,
-    });
+  const items = container.querySelectorAll(".gallery-item");
 
-    // STEP 2 — Depth compression
-    tl.to(
-      items,
-      {
-        scale: 0.65,
-        opacity: 0.45,
-        ease: "power2.inOut",
-        duration: 1.2,
-      },
-      "-=0.4"
-    );
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: "top top",
+      end: "+=120%",
+      scrub: 1.2,
+      pin: true,
+    },
+  });
 
-    // STEP 3 — Center forward cinematic
-    tl.to(
-      centerItem,
-      {
-        scale: 2.4,
-        zIndex: 20,
-        opacity: 1,
-        ease: "power3.out",
-        duration: 1.5,
-      },
-      "-=0.8"
-    );
-  }, []);
+  // Initial hidden state
+  gsap.set(items, {
+    scale: 0.8,
+    opacity: 0,
+  });
+
+  // ONLY reveal animation
+  tl.to(items, {
+    scale: 1,
+    opacity: 1,
+    stagger: {
+      each: 0.08,
+      from: "center",
+    },
+    ease: "power2.out",
+    duration: 1.2,
+  });
+
+}, []);
 
   return (
     <section className="gallery-stack" ref={containerRef}>
+
+      {/* SIDE FLOWERS */}
+  <img
+    src="/images/gallery/border.png"
+    className="gallery-flower left"
+    alt=""
+  />
+
+  <img
+    src="/images/gallery/border.png"
+    className="gallery-flower right"
+    alt=""
+  />
+
+      {/* TOP DIVIDER HEADING */}
+  <div className="gallery-heading">
+    <span>Check Some of Latest Wedding Work</span>
+  </div>
+      
       <div className="gallery-grid">
         {images.map((src, i) => {
-          const isCenter = i === 12;
+          const isCenter = i === 4;
 
           return (
             <div

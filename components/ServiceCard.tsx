@@ -115,7 +115,7 @@ export default function ServiceCard({ service }: { service: Service }) {
               Send enquiry
             </button>
 
-            <button className="flex-1 border border-red-400 text-red-500 rounded-lg py-2 text-sm hover:bg-red-50 transition">
+            <button className="shine-effect flex-1 border border-red-400 text-red-500 rounded-lg py-2 text-sm hover:bg-red-50 transition">
               View contact
             </button>
           </div>
